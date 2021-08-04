@@ -34,7 +34,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 500px;
-  min-width: 700px;
+  min-width: 800px;
 }
 
 

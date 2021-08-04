@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <background/>
+    <textItem v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import background from './components/background.vue'
+import textItem from './components/common/textItem.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    background,
+    textItem
+  },
+  data() {
+    return {
+      text: [{
+        key: 1,
+        title: '数据类型转换',
+        time: '2021-08-02',
+        keywords: ['Javascript', '基础'],
+        description: '简单的规则是',
+      },{
+        key: 2,
+        title: '数据类型转换',
+        time: '2021-08-02',
+        keywords: ['Javascript', '基础'],
+        description: '简单的规则是',
+      },{
+        key: 3,
+        title: '数据类型转换',
+        time: '2021-08-02',
+        keywords: ['Javascript', '基础'],
+        description: '简单的规则是',
+      }]
+    }
   }
 }
 </script>
 
 <style lang="less">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: black;
 }
+
 </style>

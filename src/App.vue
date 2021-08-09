@@ -1,16 +1,19 @@
 <template>
   <div id="app">
+    <navBar class="navBar"></navBar>
     <background/>
     <textItem v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
   </div>
 </template>
 
 <script>
-import background from './components/background.vue'
-import textItem from './components/common/textItem.vue'
+import navBar from 'components/common/navBar.vue'
+import background from 'components/home/background.vue'
+import textItem from 'components/common/textItem.vue'
 export default {
   name: 'App',
   components: {
+    navBar,
     background,
     textItem
   },
@@ -43,6 +46,10 @@ export default {
 <style lang="less">
 #app {
   color: black;
+}
+.navBar {
+  position: fixed;
+  z-index: 999;
 }
 
 </style>

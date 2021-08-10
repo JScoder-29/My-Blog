@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <navBar class="navBar"></navBar>
-    <background/>
-    <textItem v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
+    <navBar class="navBar "></navBar>
+    <background class="background"></background>
+    <textItem class="item" v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
   </div>
 </template>
 
@@ -46,10 +46,19 @@ export default {
 <style lang="less">
 #app {
   color: black;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+  background: #fafafa;
 }
 .navBar {
   position: fixed;
+  top: 0;
   z-index: 999;
+}
+.background {
+  padding-top: 80px;
+}
+.item {
+  margin:30px auto;
 }
 
 </style>

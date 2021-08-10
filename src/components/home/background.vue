@@ -22,20 +22,19 @@ export default {
 
 <style lang="less" scoped>
 .background {
-  width: 100vw;
+  // width: 100vw;
   height: 100vh;
+  background-color: #f5f5fa;
   position: relative;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   .circle-svg {
     width: 500px;
-    z-index: -99;
     animation: scaleup 6s ease-in-out infinite;
   }
   .hero-svg {
-    width: 900px;
-    z-index: -99;
+    width: 800px;
     animation: up 6s ease-in-out infinite;
   }
 }

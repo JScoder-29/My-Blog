@@ -20,7 +20,6 @@ body {
   font-family: "Poppings", sans-serif;
 }
 .clearfix::after{
-  height: 80px;
   content: "";
   clear: both;
   display: block;

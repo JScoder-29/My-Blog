@@ -1,20 +1,18 @@
 <template>
   <div id="app">
-    <navBar class="navBar "></navBar>
-    <background class="background"></background>
+    <navBar></navBar>
+    <router-view></router-view>
     <textItem class="item" v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
   </div>
 </template>
 
 <script>
 import navBar from 'components/common/navBar.vue'
-import background from 'components/home/background.vue'
 import textItem from 'components/common/textItem.vue'
 export default {
   name: 'App',
   components: {
     navBar,
-    background,
     textItem
   },
   data() {
@@ -39,7 +37,8 @@ export default {
         description: '简单的规则是',
       }]
     }
-  }
+  },
+  
 }
 </script>
 
@@ -49,14 +48,9 @@ export default {
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
   background: #fafafa;
 }
-.navBar {
-  position: fixed;
-  top: 0;
-  z-index: 999;
-}
-.background {
-  padding-top: 80px;
-}
+// .background {
+//   padding-top: 80px;
+// }
 .item {
   margin:30px auto;
 }

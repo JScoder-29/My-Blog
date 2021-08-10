@@ -1,16 +1,20 @@
 <template>
-  <div class="navBar">
-    <a href="#" class="logo">yuxi.com</a>
-    <ul class="nav-list">
-      <li><a href="#">主页</a></li>
-      <li><a href="#">技术</a></li>
-      <li><a href="#">生活</a></li>
-    </ul>
-    <div class="search">
-      <input type="text">
+  <div>
+    <div class="clear">
     </div>
-    <a href="#" class="ctn">关于我</a>
-  </div>
+    <div class="navBar">
+      <router-link to="/" class="logo">yuxi.com</router-link>
+      <ul class="nav-list">
+        <li><router-link to="/">主页</router-link></li>
+        <li><router-link to="/tech">技术</router-link></li>
+        <li><router-link to="/life">生活</router-link></li>
+      </ul>
+      <div class="search">
+        <input type="text">
+      </div>
+      <a href="#" class="ctn">关于我</a>
+    </div>
+  </div> 
 </template>
 
 <script>
@@ -20,6 +24,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.clear {
+  height: 80px;
+}
 .navBar {
   width: 100%;
   height: 80px;
@@ -33,6 +40,10 @@ export default {
               rgba(55,58,80,.05) 0px 2px 4px, 
               rgba(55,58,80,.05) 0px 1px 2px;
   background: #fff;
+  
+  position: fixed;
+  top: 0;
+  z-index: 999;
   a {
     text-align: center;
     line-height: 80px;

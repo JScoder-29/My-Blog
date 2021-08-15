@@ -1,18 +1,13 @@
 <template>
   <div>
-    <div class="clear">
-    </div>
     <div class="navBar">
-      <router-link to="/" class="logo">yuxi.com</router-link>
+      <router-link to="/" class="logo">YuXi's Blog</router-link>
       <ul class="nav-list">
-        <li><router-link to="/">主页</router-link></li>
-        <li><router-link to="/tech">技术</router-link></li>
-        <li><router-link to="/life">生活</router-link></li>
+        <li><router-link to="/"><i class="iconfont">&#xe60f;</i>主页</router-link></li>
+        <li><router-link to="/tech"><i class="iconfont">&#xe623;</i>文章</router-link></li>
+        <li><router-link to="/life"><i class="iconfont">&#xe61b;</i>生活</router-link></li>
+        <li><router-link to="/about"><i class="iconfont">&#xe629;</i>关于我</router-link></li>
       </ul>
-      <div class="search">
-        <input type="text">
-      </div>
-      <a href="#" class="ctn">关于我</a>
     </div>
   </div> 
 </template>
@@ -24,69 +19,67 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.clear {
-  height: 80px;
-}
 .navBar {
   width: 100%;
-  height: 80px;
+  height: 60px;
   font-size: 18px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: rgba(55,58,80,.05) 0px 16px 32px, 
-              rgba(55,58,80,.05) 0px 8px 16px, 
-              rgba(55,58,80,.05) 0px 4px 8px, 
-              rgba(55,58,80,.05) 0px 2px 4px, 
-              rgba(55,58,80,.05) 0px 1px 2px;
-  background: #fff;
-  
-  position: fixed;
-  top: 0;
+  color: #eee;
   z-index: 999;
+  padding: 0 36px;
   a {
+    position: relative;
+    text-shadow: 0.05rem 0.05rem 0.1rem rgba(0,0,0,.3);
+    font-size: 0.78em;
+    font-weight: 600;
     text-align: center;
-    line-height: 80px;
-    color: #484c7a;
+    line-height: 60px;
+    color: #eee;
+    padding-bottom: 0.5em;
   }
+  
   .logo {
     font-size: 24px;
     font-weight: 600;
-    color: #5468FF;
-  }
-  .search {
-    line-height: 80px;
-    input {
-      height: 48px;
-      width: 300px;
-    }
   }
   ul {
     min-width: 258px;
     text-align: center;
     li {
-      line-height: 80px;
+      line-height: 60px;
       display: inline-block;
-      margin: 0 25px;
-      a {
-        color: #484c7a;
+      margin: 0 15px;
+      a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    width: 50px;
+    height: 3px;
+    background-color: #69bee0;
+    content: '';
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+      i {
+        margin-right: 5px;
       }
     }
-  }
-  .ctn {
-    width: 128px;
-    height: 48px;
-    line-height: 48px;
-    color: #fff;
+    a:hover {
+    color: transparent;
     background: linear-gradient(
-    to bottom left, 
-    #5ADAFF, 
-    #5468FF);
-    box-shadow: 0px 2px 4px rgba(45, 35, 66, .4), 
-                0px 7px 13px -3px rgba(45, 35, 66, .3), 
-                inset 0px -3px 0px rgba(58, 65, 111, .5);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
-    border-radius: 4px;
+     to bottom right, 
+      rgb(80, 80, 255), 
+      rgb(253, 119, 119));
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* -webkit-text-fill-color: transparent; */
+    };
   }
 }
 </style>

@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
 @font-face {
   font-family: 'iconfont';  /* Project id 2714973 */
-  src: url('//at.alicdn.com/t/font_2714973_5186tb2er18.woff2?t=1627838748199') format('woff2'),
-       url('//at.alicdn.com/t/font_2714973_5186tb2er18.woff?t=1627838748199') format('woff'),
-       url('//at.alicdn.com/t/font_2714973_5186tb2er18.ttf?t=1627838748199') format('truetype');
+  src: url('//at.alicdn.com/t/font_2714973_3zedfv3hopc.woff2?t=1629032196639') format('woff2'),
+       url('//at.alicdn.com/t/font_2714973_3zedfv3hopc.woff?t=1629032196639') format('woff'),
+       url('//at.alicdn.com/t/font_2714973_3zedfv3hopc.ttf?t=1629032196639') format('truetype');
 }
 * {
   margin: 0;
@@ -18,15 +19,12 @@ a {
 }
 body {
   font-family: "Poppings", sans-serif;
-}
-.clearfix::after{
-  content: "";
-  clear: both;
-  display: block;
+  font-size: 14px;
 }
 .iconfont{
   font-family:"iconfont" !important;
   font-size:16px;font-style:normal;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;

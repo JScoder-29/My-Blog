@@ -1,18 +1,32 @@
 <template>
   <div id="app">
-    <navBar></navBar>
     <router-view></router-view>
-    <textItem class="item" v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
+    <div id = "bgBottom">
+      <textItem class="item" v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
+    </div>
+    <div class="editor">
+      <mavon-editor
+            :value="value"
+            :boxShadow="false"
+            style="z-index:1;height:50vh"
+            :editable="false"
+            :subfield="false"
+            :toolbarsFlag="false"
+            defaultOpen="preview"
+          >
+      </mavon-editor>
+    </div>
+    
   </div>
 </template>
 
 <script>
-import navBar from 'components/common/navBar.vue'
+
 import textItem from 'components/common/textItem.vue'
 export default {
   name: 'App',
   components: {
-    navBar,
+    
     textItem
   },
   data() {
@@ -35,7 +49,12 @@ export default {
         time: '2021-08-02',
         keywords: ['Javascript', '基础'],
         description: '简单的规则是',
-      }]
+      }],
+      value:'dsadasdadashdgjhasgdjhasgdhjasdjhasgdajhsdgjhasgdhjasgdhjasgdhjasgdajdgjhasgdhjasgdjhasgdhjasgdjhasgdhjasgdjhasgdhjasghdjasghjdasgdjhadasd',
+      rops: {toolbarsFlag: false, subfield: false, defaultOpen: "preview",fontSize:'50px'},
+      markdownOption: {
+        bold: true 
+      }
     }
   },
   
@@ -46,7 +65,12 @@ export default {
 #app {
   color: black;
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
-  background: #fafafa;
+  background: linear-gradient(
+     to right,  
+     #07122E,
+      
+      #060B21;)
+
 }
 // .background {
 //   padding-top: 80px;
@@ -54,5 +78,12 @@ export default {
 .item {
   margin:30px auto;
 }
-
+.editor {
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 50px !important;
+}
+#bgBottom{
+  overflow: hidden;
+}
 </style>

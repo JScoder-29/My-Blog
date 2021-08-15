@@ -1,26 +1,33 @@
 <template>
   <div class="background">
+    <navBar></navBar>
     <div class="welcome">
-      <span>Welcome，我是钰熙！</span>
-      <p>这是我的博客平台，我会在这里记录自己的学习，项目和生活！</p>
+      <span>YuXi's Blog</span>
+    </div> 
+    <div class="scroll-down">
+      <i class="iconfont" @click="scrollDown">&#xe61d;</i>
     </div>
-    <div class="img">
-      <img class="circle-svg" src="../../assets/imgs/circle.svg" alt="">
-      <img class="hero-svg" src="../../assets/imgs/hero.svg" alt="">
-    </div>   
   </div>
 </template>
 
 <script>
-
+import navBar from 'components/common/navBar.vue'
 export default {
   name:'background',
   components: {
-
+    navBar
   },
   data(){
     return{
      
+    }
+  },
+  methods:{
+  //滑动出背景
+    scrollDown(event){     
+      document.querySelector('#bgBottom').scrollIntoView({
+       behavior: "smooth", block: "start", inline: "nearest"
+      });
     }
   }
 }
@@ -28,49 +35,75 @@ export default {
 
 <style lang="less" scoped>
 .background {
-  // width: 100vw;
-  height: calc(100vh - 80px);
-  background-color: #f5f5fa;
+  height: 100vh;
+  background-image: url(../../assets/imgs/home_bg.png);
+  background-attachment: fixed;
+  background-position: center center;
+      background-size: cover;
+    background-repeat: no-repeat;
   position: relative;
+  color: #fff;
   
   .welcome {
-    width: 45%;
+    text-align: center;
     position: absolute;
-    top: 30%;
-    left: 7%;
-    z-index: 2;
+    top: 43%;
+    padding: 0 0.5rem;
+    width: 100%;
     
     span {
-      height: 56px;
-      font-size: 60px;
-      font-weight: 600;
+      line-height: 1.5;
+    font-size: 2.85em;
+    font-weight: 600;
+    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0,.15);
     }
     p {
       
       position: absolute;
       top: 120px;
       font-size: 20px;
+      
     }
   }
-  .img {
-    height: 100vh;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    
-    .circle-svg {
-      width: 500px;
-      animation: scaleup 6s ease-in-out infinite;
-    }
-    .hero-svg {
-      width: 800px;
-      animation: up 6s ease-in-out infinite;
+  .scroll-down{
+    width: 100%;
+    height: 3em;
+    position: absolute;
+    bottom: 0;
+    i {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      font-size: 2.8em;
+      animation: scrolldown 1s ease-in-out infinite;
     }
   }
-
- 
 }
+.welcome span:hover {
+color: transparent;
+background: linear-gradient(
+    to bottom right, 
+    rgb(80, 80, 255), 
+    rgb(253, 119, 119));;
+background-clip: text;
+-webkit-background-clip: text;
+/* -webkit-text-fill-color: transparent; */
+};
 
+@keyframes scrolldown {
+  0% {
+    top: 0;
+    opacity: 0.4;
+  }
+  50% {
+    top: -16px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0.4;
+  }
+}
 @keyframes scaleup {
   0% {
     transform: scale(1.2);

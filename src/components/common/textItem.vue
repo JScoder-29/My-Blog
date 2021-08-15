@@ -19,18 +19,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@media screen and (max-width: 1440px) {
-  .textItem {
-    width: 200px;
-  }
+  @media screen and (max-width: 1440px) {
+    .textItem {
+      width: 200px;
+    }
 
-}
+  }
   .textItem {
     width: 1090px;
     height: 350px;
     padding: 25px 45px;
-    box-shadow: 20px 20px 60px #ced1d6,-20px -20px 60px #fff;
+    // box-shadow: 20px 20px 60px #ced1d6,-20px -20px 60px #fff;
     border-radius: 10px;
+    background: #fff;
     .keywords {
       display: flex;
       margin-left: 10px;

@@ -73,6 +73,7 @@ export default {
     i {
       width: 100%;
       text-align: center;
+      cursor: pointer;
       position: absolute;
       font-size: 2.8em;
       animation: scrolldown 1s ease-in-out infinite;

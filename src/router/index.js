@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import background from '../components/home/background.vue'
+import background from '../components/home/background'
+import about from '../components/about/about'
+
 Vue.use(Router)
 const routes = [
   {
@@ -14,6 +16,10 @@ const routes = [
   {
     path: '/tech'
 
+  },
+  {
+    path: '/about',
+    component: about
   }
 ];
 const router = new Router({

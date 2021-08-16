@@ -56,6 +56,21 @@ export default {
     bottom: 0;
     left: 0;
     z-index: 5;
+    width: 0;
+    height: 3px;
+    background-color: #69bee0;
+    content: '';
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+      a:hover:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
     width: 50px;
     height: 3px;
     background-color: #69bee0;

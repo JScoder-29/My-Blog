@@ -7,10 +7,12 @@ import 'mavon-editor/dist/css/index.css'
 
 import axios from 'axios'
 
-Vue.use(mavonEditor)
-
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
+
+Vue.use(mavonEditor)
+
+
 
 new Vue({
   router,

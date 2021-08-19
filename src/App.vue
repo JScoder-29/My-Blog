@@ -13,7 +13,7 @@
             :subfield="false"
             :toolbarsFlag="true"
             defaultOpen="preview"
-            :navigation="true"
+            :navigation="false"
             :toolbars="toolbars"
             class="markdown"
           >
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-
+import {request,getText} from 'network/request.js'
 import textItem from 'components/common/textItem.vue'
 
 
@@ -35,37 +35,44 @@ export default {
   },
   data() {
     return {
-      text: [{
-        key: 1,
-        title: '数据类型转换',
-        time: '2021-08-02',
-        keywords: ['Javascript', '基础'],
-        description: '简单的规则是',
-      },{
-        key: 2,
-        title: '数据类型转换',
-        time: '2021-08-02',
-        keywords: ['Javascript', '基础'],
-        description: '简单的规则是',
-      },{
-        key: 3,
-        title: '数据类型转换',
-        time: '2021-08-02',
-        keywords: ['Javascript', '基础'],
-        description: '简单的规则是',
-      }],
+      text: null,
       value:'',
      toolbars: {
-      navigation: true, // 导航目录
+      navigation: false, // 导航目录
       }
 
     }
   },
   created(){
-    const  _this = this
-    this.$axios.get('http://localhost:3000/getText').then(function (resp) {
-        _this.value = resp.data;
-      })
+    // const  _this = this
+    // this.$axios.get('http://39.105.118.1:3000/getText?id=2').then(function (resp) {
+    //     _this.value = resp.data[0].blog_text;
+    //   })
+    // this.$axios.get('http://39.105.118.1:3000/getTitle').then(function (resp) {
+    //     _this.text = resp.data
+    //     console.log(_this.text);
+    //     for(let i = 0; i < _this.text.length; i++){
+    //       _this.text[i].blog_keywords = _this.text[i].blog_keywords.split(',')
+    //     }  
+    //   })
+    // request({
+    //   url: '/getText?id=2'
+    // }).then((resp)=>{
+    //   this.value = resp.data[0].blog_text;
+    // });
+    getText('2').then((resp)=>{
+      this.value = resp.data[0].blog_text;
+    }).catch((err)=>{
+      console.log(err);
+    });
+    request({
+      url: '/getTitle'
+    }).then((resp)=>{
+      this.text = resp.data
+      for(let i = 0; i < this.text.length; i++){
+          this.text[i].blog_keywords = this.text[i].blog_keywords.split(',')
+      }  
+    })
   }
 }
 
@@ -85,9 +92,9 @@ export default {
   color: black;
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
   background: linear-gradient(
-    to bottom right, 
-    rgb(80, 80, 255), 
-    rgb(253, 119, 119))
+    to  right, 
+    rgba(80, 80, 255,.5), 
+    rgba(253, 119, 119.3))
 
 }
 // .background {
@@ -97,14 +104,16 @@ export default {
   margin:30px auto;
 }
 .editor {
-  width: 1000px;
+  width: 1300px;
 
   margin: 0 auto;
-  font-size: 50px !important;
+  
 }
 .markdown {
   height: auto !important;
-  padding-bottom: 60px ;
+  font-size: 18px !important;
+  padding: 100px 300px;
+  background: #FBFBFB !important;
 }
 #bgBottom{
   overflow: hidden;

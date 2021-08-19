@@ -1,20 +1,30 @@
 <template>
-<div class="textItem">
+<div class="textItem" @click="tt">
     <ul class="keywords">
-      <li v-for = "item in textContent.keywords" :key= "item">{{item}}</li>
+      <li v-for = "item in textContent.blog_keywords" :key= "item.index">{{item}}</li>
     </ul>
-    <div class="title">{{textContent.title}}</div>
-    <div class="time">{{textContent.time}}</div>
-    <div class="description">{{textContent.description}}</div>
+    <div class="title">{{textContent.blog_title}}</div>
+    <div class="time">{{textContent.blog_create_time}}</div>
+    <div class="description">{{textContent.blog_description}}</div>
   </div>
 </template>
 
 <script>
 export default {
   name:'textItem',
-  props: [
-    "textContent"
-  ]
+  props: {
+    textContent:{
+      type: Object,
+      default(){
+        return {}
+      }
+    }
+  },
+  methods: {
+    tt(){
+      console.log(this.textContent.id);
+    }
+  }
 }
 </script>
 

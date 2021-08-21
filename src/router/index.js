@@ -1,9 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import background from '../components/home/background'
-import about from '../components/about/about'
 
 Vue.use(Router)
+// const routes = [
+//   {
+//     path: '/',
+//     name:'home',
+//     redirect: '/home'
+//   },
+//   {
+//     path: '/home',
+//     name:'home',
+//     component: background
+//   },
+//   {
+//     path: '/tech',
+//     name:'tech',
+//     component: background
+//   },
+//   {
+//     path: '/about',
+//     name:'about',
+//     components: {
+//       default:background,
+//       about:about}
+//   }
+// ];
+
 const routes = [
   {
     path: '/',
@@ -11,26 +34,34 @@ const routes = [
   },
   {
     path: '/home',
-    component: background
+    name:'home',
+    component: ()=>import('views/Home')
   },
   {
-    path: '/tech'
-
+    path: '/article',
+    name:'article',
+    component: ()=>import('views/Article')
+  },
+  {
+    path: '/detail',
+    name:'detail',
+    component: ()=>import('views/Detail')
   },
   {
     path: '/about',
-    component: about
+    name:'about',
+    component: ()=>import('views/About')
   }
-];
+]
 const router = new Router({
   mode: 'history',
   routes
 })
 
 router.beforeEach((to, from, next) => {
-  // chrome
+  //UC
   document.body.scrollTop = 0
-  // firefox
+  // firefox chrome
   document.documentElement.scrollTop = 0
   // safari
   window.pageYOffset = 0

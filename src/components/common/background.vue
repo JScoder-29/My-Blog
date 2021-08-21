@@ -1,8 +1,11 @@
 <template>
-  <div class="background">
+  <div class="background" :class="{'specialClass':this.$route.name =='home'}">
     <navBar></navBar>
     <div class="welcome">
-      <span>YuXi's Blog</span>
+      <span><slot>YuXi's Blog</slot></span>
+      <p>
+        <slot></slot>
+      </p>
     </div> 
     <div class="scroll-down">
       <i class="iconfont" @click="scrollDown">&#xe61d;</i>
@@ -24,8 +27,8 @@ export default {
   },
   methods:{
   //滑动出背景
-    scrollDown(event){     
-      document.querySelector('#bgBottom').scrollIntoView({
+    scrollDown(){
+      bgBottom.scrollIntoView({
        behavior: "smooth", block: "start", inline: "nearest"
       });
     }
@@ -33,16 +36,24 @@ export default {
 }
 </script>
 
+
 <style lang="less" scoped>
+
 .background {
-  height: 100vh;
+  height: 50vh;
   background-image: url(../../assets/imgs/home_bg.png);
   background-attachment: fixed;
   background-position: center center;
-      background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
   color: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  // animation: scaleup 1s;
   
   .welcome {
     text-align: center;
@@ -58,11 +69,7 @@ export default {
     text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0,.15);
     }
     p {
-      
-      position: absolute;
-      top: 120px;
-      font-size: 20px;
-      
+      font-size: 20px;   
     }
   }
   .scroll-down{
@@ -88,7 +95,7 @@ background: linear-gradient(
     rgb(253, 119, 119));;
 background-clip: text;
 -webkit-background-clip: text;
-/* -webkit-text-fill-color: transparent; */
+-webkit-text-fill-color: transparent;
 };
 
 @keyframes scrolldown {
@@ -107,13 +114,10 @@ background-clip: text;
 }
 @keyframes scaleup {
   0% {
-    transform: scale(1.2);
-  }
-  50% {
-    transform: scale(1);
+    opacity: 0.2;
   }
   100% {
-    transform: scale(1.2);
+    opacity: 1;
   }
 }
 @keyframes up {
@@ -128,5 +132,7 @@ background-clip: text;
   }
 }
 
-
+.specialClass {
+  height: 100vh;
+}
 </style>

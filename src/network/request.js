@@ -1,24 +1,27 @@
 import axios from 'axios'
 
-function request(config) {
-  const instance = axios.create({
-    baseURL: 'http://39.105.118.1:3000',
-    timeout: 500
+axios.defaults.baseURL = 'http://39.105.118.1:3000';
+//获取文章列表
+const getTitle = ()=>{
+  return axios({
+    method: 'get',
+    url: '/getTitle',
+    responseType: 'json',
   })
-  return instance(config)
 }
-function getText(id) {
-  return request({
+//根据id获取文章内容
+const getText = id=>{
+  return axios({
+    method: 'get',
     url: '/getText',
-    params:{
+    responseType: 'json',
+    params: {
       id: id
     }
   })
-  // return axios.get('http://39.105.118.1:3000/getText',{params:{
-  //   id: id
-  // }})
 }
+
 export {
-  request,
+  getTitle,
   getText
 }

@@ -1,15 +1,16 @@
 <template>
-<div class="textItem" @click="tt">
+<div class="textItem" >
     <ul class="keywords">
       <li v-for = "item in textContent.blog_keywords" :key= "item.index">{{item}}</li>
     </ul>
-    <div class="title">{{textContent.blog_title}}</div>
+    <div class="title" @click="tt">{{textContent.blog_title}}</div>
     <div class="time">{{textContent.blog_create_time}}</div>
     <div class="description">{{textContent.blog_description}}</div>
   </div>
 </template>
 
 <script>
+
 export default {
   name:'textItem',
   props: {
@@ -22,8 +23,13 @@ export default {
   },
   methods: {
     tt(){
-      console.log(this.textContent.id);
+      this.$router.push({
+        path: '/detail',
+        query: {id: this.textContent.id}
+      })
     }
+  },
+  created(){
   }
 }
 </script>
@@ -58,6 +64,7 @@ export default {
       margin: 20px 20px 5px;
       font-size: 40px;
       font-weight: 600;
+      cursor: pointer;
     }
     .time {
       margin: 0 0 20px 20px;

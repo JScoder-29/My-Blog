@@ -36,7 +36,6 @@ export default {
   methods:{
   },
   created(){
-    console.log(this.$route);
     getText(this.$route.query.id).then((resp)=>{
       this.title = resp.data[0].blog_title
       this.value = resp.data[0].blog_text;

@@ -4,7 +4,7 @@
       <ul class="nav-list">
         <li><router-link to="/"><i class="iconfont">&#xe60f;</i>主页</router-link></li>
         <li><router-link to="/article"><i class="iconfont">&#xe623;</i>文章</router-link></li>
-        <li><router-link to="/detail"><i class="iconfont">&#xe61b;</i>生活</router-link></li>
+        <li><router-link to="/life"><i class="iconfont">&#xe61b;</i>生活</router-link></li>
         <li><router-link to="/about"><i class="iconfont">&#xe629;</i>关于我</router-link></li>
       </ul>
     </div>

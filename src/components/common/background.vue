@@ -2,10 +2,8 @@
   <div class="background" :class="{'specialClass':this.$route.name =='home'}">
     <navBar></navBar>
     <div class="welcome">
-      <span><slot>YuXi's Blog</slot></span>
-      <p>
-        <slot></slot>
-      </p>
+      <span>{{title}}</span>
+      <p>{{time}}</p>
     </div> 
     <div class="scroll-down">
       <i class="iconfont" @click="scrollDown">&#xe61d;</i>
@@ -14,6 +12,7 @@
 </template>
 
 <script>
+import {getTitle} from 'network/request.js'
 import navBar from 'components/common/navBar.vue'
 export default {
   name:'background',
@@ -22,17 +21,35 @@ export default {
   },
   data(){
     return{
-     
+      title: null,
+      time: null
     }
   },
   methods:{
   //滑动出背景
     scrollDown(){
+      console.log(this.$route);
       bgBottom.scrollIntoView({
        behavior: "smooth", block: "start", inline: "nearest"
       });
     }
-  }
+  },
+  mounted(){
+    this.title = null
+    this.time = null
+  },
+
+  beforeUpdate(){
+    if(this.$route.name == 'detail'){
+      getTitle().then((resp)=>{
+      this.title = resp.data[this.$route.query.id - 1].blog_title
+      this.time = resp.data[this.$route.query.id - 1].blog_create_time
+      })
+    }else{
+      this.title = `YuXi's Blog`
+      this.time = 'passion'
+    }
+  },
 }
 </script>
 

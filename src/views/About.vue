@@ -10,7 +10,9 @@ import about from 'components/about/about'
 
 export default {
   name: 'About',
-  components: { about },
+  components: { 
+    about 
+  },
 }
 </script>
 

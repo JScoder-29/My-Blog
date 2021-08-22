@@ -41,7 +41,7 @@ export default {
   width: 1090px;
   height: 350px;
   padding: 45px 55px;
-  background: #fff;
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

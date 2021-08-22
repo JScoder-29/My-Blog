@@ -29,4 +29,9 @@ body {
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --nibgc:#ebd1dd;
+  --nishadowlight:#ffffff;
+  --nishadowdark:#8f7f87;
+}
 

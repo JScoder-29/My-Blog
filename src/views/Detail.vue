@@ -7,7 +7,7 @@
             style="z-index:1;height:50vh"
             :editable="false"
             :subfield="false"
-            :toolbarsFlag="true"
+            :toolbarsFlag="false"
             defaultOpen="preview"
             :navigation="false"
             :toolbars="toolbars"
@@ -50,12 +50,14 @@ export default {
 <style lang="less" scoped>
 .editor {
   width: 65%;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 .markdown {
   height: auto !important;
-  font-size: 18px !important;
+  font-size: 20px !important;
   padding: 100px 10%;
   background: #FBFBFB !important;
+  -webkit-box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
+  box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
 }
 </style>

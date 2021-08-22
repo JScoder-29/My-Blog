@@ -40,7 +40,7 @@ const routes = [
   {
     path: '/article',
     name:'article',
-    component: ()=>import('views/Article')
+    component: ()=>import('views/Home')
   },
   {
     path: '/detail',

@@ -8,12 +8,15 @@
     <div class="scroll-down">
       <i class="iconfont" @click="scrollDown">&#xe61d;</i>
     </div>
+    <div id="bottom"></div>
   </div>
 </template>
 
 <script>
-import {getTitle} from 'network/request.js'
 import navBar from 'components/common/navBar.vue'
+
+import {getTitle} from 'network/request.js'
+
 export default {
   name:'background',
   components: {
@@ -28,17 +31,17 @@ export default {
   methods:{
   //滑动出背景
     scrollDown(){
-      console.log(this.$route);
-      bgBottom.scrollIntoView({
+      bottom.scrollIntoView({
        behavior: "smooth", block: "start", inline: "nearest"
       });
     }
   },
+  //初始化为null 防止不同值造成闪烁
   mounted(){
     this.title = null
     this.time = null
   },
-
+  //这里开始才能读到this.$route
   beforeUpdate(){
     if(this.$route.name == 'detail'){
       getTitle().then((resp)=>{
@@ -70,26 +73,23 @@ export default {
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  // animation: scaleup 1s;
-  
   .welcome {
     text-align: center;
     position: absolute;
     top: 43%;
     padding: 0 0.5rem;
     width: 100%;
-    
     span {
       line-height: 1.5;
-    font-size: 2.85em;
-    font-weight: 600;
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0,.15);
+      font-size: 2.85em;
+      font-weight: 600;
+      text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0,.15);
     }
     p {
       font-size: 20px;   
     }
   }
-  .scroll-down{
+  .scroll-down {
     width: 100%;
     height: 3em;
     position: absolute;
@@ -104,17 +104,25 @@ export default {
     }
   }
 }
+
 .welcome span:hover {
-color: transparent;
-background: linear-gradient(
-    to bottom right, 
-    rgb(80, 80, 255), 
-    rgb(253, 119, 119));;
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  color: transparent;
+  background: linear-gradient(
+              to bottom right, 
+            rgb(80, 80, 255), 
+            rgb(253, 119, 119));;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 };
 
+#bottom {
+  position: absolute;
+  bottom: -1px;
+}
+.specialClass {
+  height: 100vh;
+}
 @keyframes scrolldown {
   0% {
     top: 0;
@@ -129,27 +137,5 @@ background-clip: text;
     opacity: 0.4;
   }
 }
-@keyframes scaleup {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes up {
-  0% {
-    transform: translateY(10px);
-  }
-  50% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(10px);
-  }
-}
-
-.specialClass {
-  height: 100vh;
-}
+//完成
 </style>

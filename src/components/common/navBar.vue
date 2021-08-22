@@ -18,9 +18,9 @@ export default {
       isFixed: false
     }
   },
-
-  mounted(){
-    window.onscroll = ()=> {
+  methods:{
+    //固定nav
+    fixNav(){
       //做兼容
       const scrollTop =  document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop >60) {
@@ -29,7 +29,11 @@ export default {
             this.isFixed = false
         }
     }
-  }
+  },
+  mounted(){
+    window.addEventListener("scroll", this.fixNav)
+  },
+  
 }
 </script>
 
@@ -52,6 +56,7 @@ a {
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  user-select: none;
   .logo {
     font-size: 24px;
     font-weight: 600;
@@ -104,4 +109,5 @@ a {
     color: #000;
   }
 }
+//完成
 </style>

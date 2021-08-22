@@ -1,16 +1,24 @@
 <template>
   <div class="Home">
-    <textItem class="item" v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
+    <div class="left">
+      <textItem class="item" v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
+    </div>
+    <div class="right">
+      <tag class="tag" ></tag>
+    </div>
   </div>
 </template>
 
 <script>
-import {getTitle} from 'network/request.js'
 import textItem from 'components/common/textItem'
+import tag from 'components/common/tag'
+import {getTitle} from 'network/request.js'
+
 export default {
   name:'Home',
   components: {   
-    textItem
+    textItem,
+    tag
   },
   data() {
     return {
@@ -29,11 +37,22 @@ export default {
       }  
     })
   },
+ 
 }
 </script>
 
 <style lang="less" scoped>
+.Home {
+  display: flex;
+  justify-content: center;
+}
 .item {
   margin:30px auto;
 }
+.right {
+  width: 200px;
+  height: 300px;
+  margin:30px;
+}
+
 </style>

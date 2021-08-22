@@ -4,8 +4,11 @@
   </div>
 </template>
 
-<script>import {getTitle} from 'network/request.js'
+<script>
 import textItem from 'components/common/textItem'
+
+import {getTitle} from 'network/request.js'
+
 export default {
   name:'Article',
   components: {   

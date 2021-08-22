@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <background>
-    </background>
-    <router-view id="bgBottom"></router-view>
-    <footer>我是footer</footer>
+    <background></background>
+    <router-view></router-view>
+    <myFooter></myFooter>
   </div>
 </template>
 
 <script>
 import background from 'components/common/background'
-
+import myFooter from 'components/common/myFooter'
 export default {
   name: 'App',
   components: {   
-    background
+    background,
+    myFooter
   },
   data() {
     return {
@@ -40,15 +40,10 @@ export default {
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
   background: linear-gradient(
               to  right, 
-            rgba(80, 80, 255,.5), 
-            rgba(253, 119, 119.3));
+            rgba(80, 80, 255,.3), 
+            rgba(253, 119, 119,.4));
   
 }
 
-footer {
-  width: 300px;
-  height: 300px;
-  background: pink;
-  margin: 0 auto;
-}
+
 </style>

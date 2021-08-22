@@ -20,6 +20,7 @@
 
 <script>
 import {getText} from 'network/request.js'
+
 export default {
   name: 'Detail',
   data() {

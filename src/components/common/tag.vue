@@ -3,7 +3,7 @@
     <div class="tags" :class="{fix:this.fixed}">
       <p>标签分类</p>  
       <ul class="classify">
-        <li v-for = "item,index in classify" :key= "index">{{item}}</li>
+        <li v-for = "item,index in classify" :key= "index" @click="getClassify(item)">{{item}}</li>
       </ul>
     </div>
   </div>
@@ -33,6 +33,12 @@ export default {
             this.fixed = false
         }
       }
+    },
+    getClassify(tag){
+      this.$router.push({
+        path: '/tag',
+        query: {tag: tag}
+      })
     }
   },
   mounted(){

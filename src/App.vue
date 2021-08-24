@@ -41,7 +41,7 @@ export default {
   background: linear-gradient(
               to  right, 
             rgba(80, 80, 255,.3), 
-            rgba(253, 119, 119,.4));
+            rgba(253, 119, 119,.3));
   
 }
 

@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://39.105.118.1:3000';
+// axios.defaults.baseURL = 'http://39.105.118.1:3000';
+axios.defaults.baseURL = 'http://127.0.0.1:3000/'
 //获取文章列表
 const getTitle = ()=>{
   return axios({
@@ -20,8 +21,19 @@ const getText = id=>{
     }
   })
 }
-
+//根据标签获取文章列表
+const getClassify = tag=>{
+  return axios({
+    method: 'get',
+    url: '/getClassify',
+    responseType: 'json',
+    params: {
+      tag: tag
+    }
+  })
+}
 export {
   getTitle,
-  getText
+  getText,
+  getClassify
 }

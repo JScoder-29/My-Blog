@@ -4,7 +4,7 @@
       <textItem class="item" v-for = "item of text" :key="item.key" :textContent = "item"></textItem>
     </div>
     <div class="right">
-      <tag class="tag" ></tag>
+      <tag class="tag"></tag>
     </div>
   </div>
 </template>

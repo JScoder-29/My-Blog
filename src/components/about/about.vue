@@ -25,7 +25,7 @@
         <button class="nibtn">L</button>
       </div>
       <div class="row row3" ref="row3">
-        <button class="nibtn">z</button>
+        <button class="nibtn">Z</button>
         <button class="nibtn">X</button>
         <button class="nibtn">C</button>
         <button class="nibtn">V</button>

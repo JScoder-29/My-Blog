@@ -2,6 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
+//解决重复点击同一个标签出现Avoided redundant navigation to current location的问题
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 // const routes = [
 //   {
 //     path: '/',
@@ -51,6 +56,11 @@ const routes = [
     path: '/about',
     name:'about',
     component: ()=>import('views/About')
+  },
+  {
+    path: '/tag',
+    name: 'tag',
+    component: ()=>import('views/Classify')
   }
 ]
 const router = new Router({

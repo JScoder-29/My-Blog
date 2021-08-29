@@ -12,7 +12,7 @@
 <script>
 import textItem from 'components/common/textItem'
 import tag from 'components/common/tag'
-import {getTitle,getClassify} from 'network/request.js'
+import {getClassify} from 'network/request.js'
 
 export default {
   name:'Home',
@@ -34,8 +34,7 @@ export default {
       this.text = resp.data
       for(let i = 0; i < this.text.length; i++){
         this.text[i].blog_keywords = this.text[i].blog_keywords.split(',')
-      } 
-      console.log(resp);
+      }
     }).catch((err)=>{
       console.log(err);
     })
@@ -48,7 +47,6 @@ export default {
         for(let i = 0; i < this.text.length; i++){
         this.text[i].blog_keywords = this.text[i].blog_keywords.split(',')
         } 
-        console.log(resp);
       }).catch((err)=>{
         console.log(err);
       })

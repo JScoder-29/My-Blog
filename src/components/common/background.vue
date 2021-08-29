@@ -61,7 +61,7 @@ export default {
 
 .background {
   height: 50vh;
-  background-image: url(../../assets/imgs/home_bg.png);
+  background-image: url(../../assets/imgs/home_bg.png),url(../../assets/imgs/home_bg.webp);
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;

@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less" >
 .editor {
   width: 65%;
   margin: 100px auto;
@@ -59,5 +59,9 @@ export default {
   background: #FBFBFB !important;
   -webkit-box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
   box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
+  ul, ol {
+    list-style: disc !important;
+  }
 }
+
 </style>
